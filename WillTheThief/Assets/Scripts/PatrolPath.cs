@@ -2,49 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class PatrolPath : MonoBehaviour {
 
-public class PathNode
-{
-    private Vector3 pos;
+    public List<PathNode> nodes;
 
-    public PathNode()
-    {
-        pos = new Vector3(0, 0, 0);
-    }
-
-    public PathNode(Vector3 loc)
-    {
-        pos = new Vector3(loc.x, loc.y, loc.z);
-    }
-
-    public Vector3 getPos()
-    {
-        return pos;
-    }
-
-    public static float distanceBetween(PathNode a, PathNode b)
-    {
-        return (Mathf.Abs(a.getPos().x - b.getPos().x) + Mathf.Abs(a.getPos().y - b.getPos().y) + Mathf.Abs(a.getPos().z - b.getPos().z));
-    }
-}
-
-
-public class Path {
-
-    private List<PathNode> nodes;
-
-    public Path() {
-        nodes = new List<PathNode>();
+	// Use this for initialization
+	void Start () {
+		
 	}
-
-    public void addNode(PathNode toAdd)
-    {
-        nodes.Add(toAdd);
-    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
     public Vector3 nextNode(Vector3 currentLoc)
     {
-
         //find current loc
         int pos = posInArray(currentLoc);
 
@@ -63,13 +36,12 @@ public class Path {
 
     public int posInArray(Vector3 currentLoc)
     {
-        PathNode temp = new PathNode(currentLoc);
         int pos = -1;
         float gap = 1000000;
         PathNode[] nodeArray = nodes.ToArray();
         for (int i = 0; i < nodes.Count; i++)
         {
-            float tgap = PathNode.distanceBetween(temp, nodeArray[i]);
+            float tgap = PathNode.distanceBetween(nodeArray[i], currentLoc);
             if (tgap < gap)
             {
                 gap = tgap;
@@ -80,4 +52,8 @@ public class Path {
         return pos;
     }
 
+    public int numOfNodes()
+    {
+        return nodes.Count;
+    }
 }
