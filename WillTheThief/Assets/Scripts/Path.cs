@@ -7,12 +7,12 @@ public class PathNode
 {
     private Vector3 pos;
 
-    PathNode()
+    public PathNode()
     {
         pos = new Vector3(0, 0, 0);
     }
 
-    PathNode(Vector3 loc)
+    public PathNode(Vector3 loc)
     {
         pos = new Vector3(loc.x, loc.y, loc.z);
     }
@@ -24,7 +24,7 @@ public class PathNode
 
     public static float distanceBetween(PathNode a, PathNode b)
     {
-        return (abs(a.getPos().x - b.getPos().x) + abs(a.getPos().y - b.getPos().y) + abs(a.getPos().z - b.getPos().z));
+        return (Mathf.Abs(a.getPos().x - b.getPos().x) + Mathf.Abs(a.getPos().y - b.getPos().y) + Mathf.Abs(a.getPos().z - b.getPos().z));
     }
 }
 
@@ -32,8 +32,8 @@ public class PathNode
 public class Path {
 
     private List<PathNode> nodes;
-    
-	Path () {
+
+    public Path() {
         nodes = new List<PathNode>();
 	}
 
@@ -50,7 +50,7 @@ public class Path {
 
         if ((pos + 1) % nodes.Count == 0) pos = 0; else pos = pos + 1;
 
-        return nodeArray[pos].getPos();
+        return nodes.ToArray()[pos].getPos();
     }
 
     public Vector3 nextNode(int currentLoc)
