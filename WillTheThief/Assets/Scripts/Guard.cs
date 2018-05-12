@@ -30,7 +30,7 @@ public class Guard : MonoBehaviour {
     {
         if (mode == 0) //move to destination
         {
-            float speed = 5.0f;
+            float speed = 4.0f;
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, destination, step);
         } else if (mode == 1) //turning
