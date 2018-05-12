@@ -6,6 +6,9 @@ public class ItemManager : MonoBehaviour {
 
     public UnityEngine.UI.Text text;
     public UnityEngine.UI.Image image;
+    public Player player;
+
+    public Door[] doorList;
 
     private int state;
     private bool[] unlocked;
@@ -19,6 +22,7 @@ public class ItemManager : MonoBehaviour {
         {
             unlocked[i] = false;
         }
+        unlocked[1] = true;
     }
 	
 	// Update is called once per frame
@@ -71,6 +75,53 @@ public class ItemManager : MonoBehaviour {
         if (Input.GetKeyDown("e"))
         {
             //use item!!!
+            Vector3 playerPos = player.getPosition();
+            switch (state)
+            {
+                case 5:
+                    //text.text = "L. S. O. M.";
+                    break;
+                case 4:
+                    //text.text = "RC Car";
+                    break;
+                case 3:
+                    //text.text = "Playbot";
+                    break;
+                case 2:
+                    //text.text = "Stealth Suit";
+                    break;
+                case 1:
+                    foreach (Door door in doorList)
+                    {
+                        if (!door.locked) continue;
+                        else
+                        {
+                            Vector3 doorPos = door.getPosition();
+                            if (Mathf.Abs(playerPos.x - doorPos.x) + Mathf.Abs(playerPos.y - doorPos.y) + Mathf.Abs(playerPos.z - doorPos.z) <= 2)
+                            {
+                                door.open();
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    //distance between player and door is < 5?
+                    foreach (Door door in doorList)
+                    {
+                        if (door.locked) continue; else
+                        {
+                            Vector3 doorPos = door.getPosition();
+                            if (Mathf.Abs(playerPos.x-doorPos.x) + Mathf.Abs(playerPos.y - doorPos.y) + Mathf.Abs(playerPos.z - doorPos.z) <= 2)
+                            {
+                                door.open();
+                            }
+                        }
+                    }
+
+
+
+                    break;
+            }
         }
     }
 }

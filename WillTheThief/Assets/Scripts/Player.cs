@@ -20,6 +20,10 @@ public class Player : MonoBehaviour {
         movement();
     }
 
+    public Vector3 getPosition()
+    {
+        return GetComponent<Rigidbody>().position;
+    }
 
     void movement()
     {
