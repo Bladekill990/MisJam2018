@@ -23,7 +23,7 @@ public class Door : MonoBehaviour {
 
     public void open()
     {
-        print("openingDoor");
         Destroy(GetComponent<Collider>());
+        GetComponent<Renderer>().enabled = false;
     }
 }
