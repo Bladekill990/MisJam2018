@@ -143,7 +143,8 @@ GameObject:
   - component: {fileID: 23197879766365758}
   - component: {fileID: 33861609963172656}
   - component: {fileID: 114872770649932402}
-  - component: {fileID: 64871211100779268}
+  - component: {fileID: 114853576595488074}
+  - component: {fileID: 65117174477738894}
   m_Layer: 0
   m_Name: Bar door
   m_TagString: Untagged
@@ -262,8 +263,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1795974713093694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.894, y: 0, z: -15.51}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 31.08, y: -0.00000047683716, z: 21.12}
   m_LocalScale: {x: 0.21976386, y: 1, z: 1}
   m_Children:
   - {fileID: 4427054873045402}
@@ -276,7 +277,7 @@ Transform:
   - {fileID: 4372008295333128}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4902665434006564
 Transform:
   m_ObjectHideFlags: 1
@@ -702,7 +703,7 @@ MeshCollider:
   m_GameObject: {fileID: 1025512386328830}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -716,7 +717,7 @@ MeshCollider:
   m_GameObject: {fileID: 1398640897551380}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -730,7 +731,7 @@ MeshCollider:
   m_GameObject: {fileID: 1045528980576680}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -744,7 +745,7 @@ MeshCollider:
   m_GameObject: {fileID: 1237293883506814}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -758,7 +759,7 @@ MeshCollider:
   m_GameObject: {fileID: 1994957489100970}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -772,21 +773,7 @@ MeshCollider:
   m_GameObject: {fileID: 1553024033562048}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
---- !u!64 &64871211100779268
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1795974713093694}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -800,7 +787,7 @@ MeshCollider:
   m_GameObject: {fileID: 1871267174376496}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -814,12 +801,24 @@ MeshCollider:
   m_GameObject: {fileID: 1601891680705774}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!65 &65117174477738894
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795974713093694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9999997, y: 3.1132164, z: 2.2}
+  m_Center: {x: 0.50000006, y: 1.5566082, z: -1.1}
 --- !u!114 &114001311950978520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6326,6 +6325,18 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!114 &114853576595488074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795974713093694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8c6a2ced440384dad92c92ba30e49b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locked: 1
 --- !u!114 &114858402056971568
 MonoBehaviour:
   m_ObjectHideFlags: 1
