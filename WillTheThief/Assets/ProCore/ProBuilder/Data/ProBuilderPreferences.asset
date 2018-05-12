@@ -24,6 +24,7 @@ MonoBehaviour:
   - pbDefaultSelectionMode
   - pb_GIWorkflowMode
   - pbHandleAlignment
+  - pbVertexColorTool
   m_Float_keys:
   - pbBevelAmount
   - pbEditorScroll.x
@@ -33,9 +34,9 @@ MonoBehaviour:
   m_Color_keys: []
   m_Material_keys: []
   m_Bool_values: 01010000010100
-  m_Int_values: 00000000020000000000000000000000
+  m_Int_values: 0100000000000000000000000000000001000000
   m_Float_values:
-  - 0.028625697
+  - 0.083877094
   - 0
   - 0
   m_String_values:
