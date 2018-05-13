@@ -18,6 +18,12 @@ public class VisionCone : MonoBehaviour {
             tris.Add(i);
             tris.Add(i + 1);
         }
+        tris.Add(0);
+        tris.Add(1);
+        tris.Add(60);
+        tris.Add(0);
+        tris.Add(60);
+        tris.Add(59);
         triangles = tris.ToArray();
 
     }
@@ -30,6 +36,18 @@ public class VisionCone : MonoBehaviour {
         makeVerts();
     }
 
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            print("You died");
+        } else
+        {
+            //
+        }
+    }
+
     public void updateTriangles(Vector3[] impPoints)
     {
         Mesh mesh = GetComponent<MeshFilter>().mesh;
@@ -40,6 +58,7 @@ public class VisionCone : MonoBehaviour {
         mesh.triangles = triangles;
 
         GetComponent<MeshFilter>().mesh = mesh;
+        GetComponent<MeshCollider>().sharedMesh = GetComponent<MeshFilter>().mesh;
     }
 
     private void makeVerts()
@@ -51,6 +70,11 @@ public class VisionCone : MonoBehaviour {
 
         List<Vector3> verticies = new List<Vector3>();
         verticies.Add(new Vector3(0.0f, 0.0f, 0.0f));
+
+        float antiaxis = Vector3.Angle(new Vector3(1.0f,0.0f,0.0f), new Vector3(transform.forward.x, 0.0f, transform.forward.z));
+        if ((transform.forward.x + transform.forward.z < 0)) antiaxis = -antiaxis;
+        antiaxis = (antiaxis + 270) % 360;
+
 
         for (int i = 0; i <= 60; i++)
         {
@@ -72,9 +96,11 @@ public class VisionCone : MonoBehaviour {
                 verticies.Add(12.0f * rotation);
             }
 
-            verticies[i + 1] = Quaternion.AngleAxis(90, transform.up) * verticies[i+1];
+            verticies[i + 1] = Quaternion.AngleAxis(antiaxis, transform.up) * verticies[i+1];
+           // verticies[i + 1] = Quaternion.AngleAxis(-90, transform.up) * verticies[i + 1];
         }
 
+        verticies.Add(new Vector3(0, 0.5f, 0));
 
         updateTriangles(verticies.ToArray());
     }

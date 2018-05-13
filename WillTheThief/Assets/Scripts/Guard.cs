@@ -59,7 +59,7 @@ public class Guard : MonoBehaviour {
 
 
             transform.rotation = Quaternion.LookRotation(newDir);
-            //vc.transform.rotation = transform.rotation;
+            vc.transform.rotation = transform.rotation;
 
             if (newDir == oldDir)
             {
