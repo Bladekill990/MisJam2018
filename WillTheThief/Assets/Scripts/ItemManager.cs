@@ -106,6 +106,10 @@ public class ItemManager : MonoBehaviour {
                     break;
                 case 4:
                     //text.text = "RC Car";
+                    Vector3 teleportPos = playerPos;
+                    teleportPos.y += 2;
+                    rckar.transform.position = teleportPos;
+                    rckar.transform.rotation = Quaternion.identity;
                     break;
                 case 3:
                     //text.text = "Playbot";
