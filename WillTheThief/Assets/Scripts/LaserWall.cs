@@ -13,6 +13,12 @@ public class LaserWall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(swch.pressed)
+        {
+            GetComponent<Renderer>().enabled = false;
+        } else
+        {
+            GetComponent<Renderer>().enabled = true;
+        }
 	}
 }

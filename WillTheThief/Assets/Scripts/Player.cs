@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    public bool control;
+
+    // Use this for initialization
+    void Start() {
+        control = true;
+    }
+
+    // Update is called once per frame
+    void Update() {
 
     }
 
 
-    void FixedUpdate()
-    {
-        movement();
+    void FixedUpdate() { 
+    
+        if(control){
+            movement();
+        }
     }
 
     public Vector3 getPosition()
