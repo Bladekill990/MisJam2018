@@ -10,11 +10,15 @@ public class ItemManager : MonoBehaviour {
 
     public Door[] doorList;
 
+    private int doorChannel;
+
     private int state;
     private bool[] unlocked;
 
     // Use this for initialization
     void Start () {
+        doorChannel = -1;
+
         state = 0;
         unlocked = new bool[6];
         unlocked[0] = true;
@@ -27,6 +31,11 @@ public class ItemManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(doorChannel >= 0)
+        {
+            channelDoor(doorChannel);
+        }
+
         switch (state)
         {
             case 5:
@@ -91,15 +100,18 @@ public class ItemManager : MonoBehaviour {
                     //text.text = "Stealth Suit";
                     break;
                 case 1:
+                    int posInList = -1;
                     foreach (Door door in doorList)
                     {
+                        posInList++;
                         if (!door.locked) continue;
                         else
                         {
                             Vector3 doorPos = door.getPosition();
-                            if (Mathf.Abs(playerPos.x - doorPos.x) + Mathf.Abs(playerPos.y - doorPos.y) + Mathf.Abs(playerPos.z - doorPos.z) <= 2)
+                            if (Mathf.Abs(playerPos.x - doorPos.x) + Mathf.Abs(playerPos.y - doorPos.y) + Mathf.Abs(playerPos.z - doorPos.z) <= 2.5f)
                             {
                                 door.open();
+                                channelDoor(posInList);
                             }
                         }
                     }
@@ -111,7 +123,7 @@ public class ItemManager : MonoBehaviour {
                         if (door.locked) continue; else
                         {
                             Vector3 doorPos = door.getPosition();
-                            if (Mathf.Abs(playerPos.x-doorPos.x) + Mathf.Abs(playerPos.y - doorPos.y) + Mathf.Abs(playerPos.z - doorPos.z) <= 2)
+                            if (Mathf.Abs(playerPos.x-doorPos.x) + Mathf.Abs(playerPos.y - doorPos.y) + Mathf.Abs(playerPos.z - doorPos.z) <= 3.0f)
                             {
                                 door.open();
                             }
@@ -122,6 +134,21 @@ public class ItemManager : MonoBehaviour {
 
                     break;
             }
+        }
+
+    }
+
+    private void channelDoor(int doorNum)
+    {
+        doorChannel = doorNum;
+        Door door = doorList[doorNum];
+        Vector3 doorPos = door.getPosition();
+        Vector3 playerPos = player.getPosition();
+        if ((Mathf.Abs(playerPos.x - doorPos.x) + Mathf.Abs(playerPos.y - doorPos.y) + Mathf.Abs(playerPos.z - doorPos.z) > 5.0f) || (!door.amChannel()))
+        {
+            door.cancelChannel();
+            doorChannel = -1;
+            return;
         }
     }
 }
