@@ -33,7 +33,7 @@ public class RCCar : MonoBehaviour {
 
     void movement()
     {
-        float rspeed = 25.0f;
+        float rspeed = 40.0f;
         float speed = 5.0f;
         float x = Input.GetAxisRaw("Horizontal");
         transform.Rotate(Vector3.up * Time.deltaTime * x * rspeed);
