@@ -21,4 +21,15 @@ public class LaserWall : MonoBehaviour {
             GetComponent<Renderer>().enabled = true;
         }
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (GetComponent<Renderer>().enabled)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                print("You zap died");
+            }
+        }
+    }
 }
