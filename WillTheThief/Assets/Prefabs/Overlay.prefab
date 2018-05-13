@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 114759037958167866}
   image: {fileID: 114366776538464246}
+  player: {fileID: 0}
 --- !u!114 &114759037958167866
 MonoBehaviour:
   m_ObjectHideFlags: 1
