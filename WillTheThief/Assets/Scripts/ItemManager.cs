@@ -7,8 +7,11 @@ public class ItemManager : MonoBehaviour {
     public UnityEngine.UI.Text text;
     public UnityEngine.UI.Image image;
     public Player player;
+    public RCCar rckar;
 
     public Door[] doorList;
+    public GameObject[] scrollList;
+    public GameObject[] targetList;
 
     private int doorChannel;
 
@@ -24,9 +27,8 @@ public class ItemManager : MonoBehaviour {
         unlocked[0] = true;
         for (int i=1; i < 6; i++)
         {
-            unlocked[i] = false;
+            unlocked[i] = true;
         }
-        unlocked[1] = true;
     }
 	
 	// Update is called once per frame
@@ -40,21 +42,33 @@ public class ItemManager : MonoBehaviour {
         {
             case 5:
                 text.text = "L. S. O. M.";
+                player.control = true;
+                rckar.control = false;
                 break;
             case 4:
                 text.text = "RC Car";
+                player.control = false;
+                rckar.control = true;
                 break;
             case 3:
                 text.text = "Playbot";
+                player.control = true;
+                rckar.control = false;
                 break;
             case 2:
                 text.text = "Stealth Suit";
+                player.control = true;
+                rckar.control = false;
                 break;
             case 1:
                 text.text = "Lockpick";
+                player.control = true;
+                rckar.control = false;
                 break;
             default:
                 text.text = "Interact";
+                player.control = true;
+                rckar.control = false;
                 break;
         }
 
@@ -92,6 +106,10 @@ public class ItemManager : MonoBehaviour {
                     break;
                 case 4:
                     //text.text = "RC Car";
+                    Vector3 teleportPos = playerPos;
+                    teleportPos.y += 2;
+                    rckar.transform.position = teleportPos;
+                    rckar.transform.rotation = Quaternion.identity;
                     break;
                 case 3:
                     //text.text = "Playbot";
