@@ -19,6 +19,7 @@ MonoBehaviour:
   - pbCollapseVertexToFirst
   - pbShowCollider
   - pbEnableBackfaceSelection
+  - pbDetachToNewObject
   m_Int_keys:
   - pbDefaultEditLevel
   - pbDefaultSelectionMode
@@ -33,10 +34,10 @@ MonoBehaviour:
   - pbCurrentMaterialPalette
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 01010000010100
-  m_Int_values: 0100000002000000000000000000000001000000
+  m_Bool_values: 0101000001010001
+  m_Int_values: 0000000001000000000000000000000001000000
   m_Float_values:
-  - 0.083877094
+  - 0.028625699
   - 0
   - 0
   m_String_values:
